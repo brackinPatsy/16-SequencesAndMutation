@@ -38,8 +38,8 @@ def main():
     #       that is, attempts to MUTATE the string.
     # These cause RUN-TIME errors.
     # ------------------------------------------------------------------
-    numbers[2] = 77
-    s[0] = 'X'
+    #numbers[2] = 77
+    #s[0] = 'X'
 
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being

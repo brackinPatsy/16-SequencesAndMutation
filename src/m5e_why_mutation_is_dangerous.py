@@ -67,12 +67,12 @@ def run_test_move_randomly():
     circle1 = rg.Circle(rg.Point(400, 250), 50)
     circle1.fill_color = 'blue'
     circle1.attach_to(window.initial_canvas)
-    move_randomly(window, circle1, 100, 0.05)
+    move_randomly(window, circle1, 10, 0.05)
 
     circle2 = rg.Circle(rg.Point(200, 100), 30)
     circle2.fill_color = 'red'
     circle2.attach_to(window.initial_canvas)
-    move_randomly(window, circle2, 500, 0.01)
+    move_randomly(window, circle2, 50, 0.01)
 
     window.close_on_mouse_click()
 
@@ -100,8 +100,8 @@ def move_randomly(window, circle, times_to_move, seconds_per_move):
     #   2. Can you spot the error?
     # ------------------------------------------------------------------
     for _ in range(times_to_move):
-        dx = random.randrange(-5, 7)
-        dy = random.randrange(-5, 6)
+        dx = random.randrange(-1, 1)
+        dy = random.randrange(0, 2)
         circle.move_by(dx, dy)
         window.render(seconds_per_move)
 
@@ -110,7 +110,7 @@ def run_test_repeat_move_randomly():
     """ Tests the   repeat_move_randomly   function. """
     window = rg.RoseWindow(800, 500)
 
-    circle = rg.Circle(rg.Point(400, 250), 50)
+    circle = rg.Circle(rg.Point(200, 200), 50)
     circle.fill_color = 'green'
     circle.attach_to(window.initial_canvas)
     repeat_move_randomly(5, circle, window)
@@ -132,7 +132,7 @@ def repeat_move_randomly(n, circle, window):
     to a canvas on the given window.
     """
     for _ in range(n):
-        move_randomly(window, circle, 1000, 0)
+        move_randomly(window, circle, 50, 0)
         window.continue_on_mouse_click()
 
 

@@ -4,15 +4,28 @@ In this module, you mutate by DELETING elements of a list.
 
 Authors: David Mutchler, Amanda Stouder, Chandan Rupakheti, Katie Dion,
          Claude Anderson, Delvin Defoe, Curt Clifton, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Patsy.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import m6_mutation
 
 
 def main():
-    run_test_RETURN_delete_negatives()
-    run_test_MUTATE_delete_negatives()
+    #run_test_RETURN_delete_negatives()
+    #run_test_MUTATE_delete_negatives()
+    n =4
+    for j in range(n):
+        for k in range(j + 1):
+            print(k+1,end = '')
+        print()
+    for j in range(4):
+        for k in range(2):
+            print(j, k)
+
+    for j in range(4):
+        print('j = ', j)
+        for k in range(j):
+            print(j, k)
 
 
 def run_test_RETURN_delete_negatives():
@@ -27,6 +40,15 @@ def run_test_RETURN_delete_negatives():
     # ------------------------------------------------------------------
     run_test_number = 1
     original_argument = [-30.2, 50, 12.5, -1, -5, 8, 0]
+    y = get_max(original_argument)
+    print('max value is ', y)
+    y = get_even_max(original_argument)
+    print('max value is ', y)
+    y = get_2even_max(original_argument)
+    print('max value is ', y)
+    mystery('csse120')
+    name = 'patsy'
+    print(name[0]+name[len(name)-1])
     correct_argument_value_after_function_call = original_argument.copy()
     correct_returned_value = [50, 12.5, 8, 0]
 
@@ -51,6 +73,35 @@ def run_test_RETURN_delete_negatives():
                          correct_argument_value_after_function_call)
 
 
+def mystery(s):
+    for k in range(1, len(s)):
+        print(s[k-1], s[k])
+
+
+def get_max(numbers):
+    biggest = numbers[0]
+    for k in range(1, len(numbers)):
+        if numbers[k] > biggest:
+            biggest = numbers[k]
+    return biggest
+
+
+def get_even_max(numbers):
+    biggest = numbers[0]
+    for k in range(2, len(numbers),2):
+        if numbers[k] > biggest:
+            biggest = numbers[k]
+    return biggest
+
+
+def get_2even_max(numbers):
+    biggest = numbers[0]
+    for k in range(1, len(numbers)):
+        if k%2 == 0:
+            if numbers[k] > biggest:
+                biggest = numbers[k]
+    return biggest
+
 def RETURN_delete_negatives(numbers):
     """
     Returns a NEW list that is the same as the given list of numbers,
@@ -65,14 +116,18 @@ def RETURN_delete_negatives(numbers):
       :type numbers: list
     where the list is a list of numbers.
     """
-    # TODO: 2. First, READ THE ABOVE TEST CODE.
+    # done: 2. First, READ THE ABOVE TEST CODE.
     #          Make sure that you understand it.
     #          In particular, note how it calls the   run_test   function
     #          from the module   m6_mutation   by using the notation:
     #             m6_mutation.run_test(...)
     #          Then, IMPLEMENT and test THIS FUNCTION
     #          (using the above code for testing).
-
+    newlist = []
+    for k in range(len(numbers)):
+        if numbers[k]>= 0:
+            newlist = newlist + [numbers[k]]
+    return newlist
 
 def run_test_MUTATE_delete_negatives():
     """ Tests the   MUTATE_delete_negatives   function. """
@@ -124,7 +179,7 @@ def MUTATE_delete_negatives(numbers):
 
     Precondition: The argument is a list of numbers.
     """
-    # TODO: 3. First, READ THE ABOVE TEST CODE.
+    # done: 3. First, READ THE ABOVE TEST CODE.
     #          Make sure that you understand it.
     #          In particular, note how it calls the   run_test   function
     #          from the module   m6_mutation   by using the notation:
@@ -143,5 +198,14 @@ def MUTATE_delete_negatives(numbers):
 # If this module is running at the top level (as opposed to being
 # imported by another module), then call the 'main' function.
 # ----------------------------------------------------------------------
+    print(numbers)
+    for k in range(len(numbers)-1,-1,-1):
+        print('k is',k,'numbers[k] is', numbers[k])
+        if numbers[k]< 0:
+            del numbers[k]
+    print(numbers)
+
+
+
 if __name__ == '__main__':
     main()

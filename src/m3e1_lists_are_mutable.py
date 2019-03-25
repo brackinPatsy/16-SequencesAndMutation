@@ -43,7 +43,7 @@ def main():
     print(numbers, numbers2)  # Prints the two DIFFERENT lists
 
     # ------------------------------------------------------------------
-    # Shows the difference betwee the   is   operator
+    # Shows the difference between the   is   operator
     #    (two things refer to the same place in memory)
     # and the   ==   operator (two things contain the same data).
     # ------------------------------------------------------------------
